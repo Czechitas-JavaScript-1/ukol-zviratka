@@ -1,41 +1,41 @@
 import React from 'react';
 import './style.css';
 
-const AnimalDetail = ({selectedAnimal, nazev, nazevLatinsky, domovina, potrava, biotop, popis, velikost}) => {
+const AnimalDetail = ({selectedAnimal}) => {
   return (
     <>
       <div className="detail">
         <div className="detail__content">
 
           <div className="detail__header">
-            <img className="detail__image" src="/img/slon.jpg" alt="xxx" />
+            <img className="detail__image" src={selectedAnimal.foto} alt="xxx" />
             <div className="detail__title">
-              <h2 className="detail__name"><span>{selectedAnimal}</span></h2>
-              <div className="detail__latin"><span>{selectedAnimal.latinName}</span></div>
+              <h2 className="detail__name"><span>{selectedAnimal.nazev}</span></h2>
+              <div className="detail__latin"><span>{selectedAnimal.nazevLatinsky}</span></div>
             </div>
           </div>
 
           <div className="detail__info">
             <p className="detail__desc">
-              {popis}
+              {selectedAnimal.popis}
             </p>
 
             <div className="detail__items">
               <div className="detail__item">
                 <h3>Domovina</h3>
-                <p>{domovina}</p>
+                <p>{selectedAnimal.domovina}</p>
               </div>
               <div className="detail__item">
                 <h3>Biotop</h3>
-                <p>{biotop}</p>
+                <p>{selectedAnimal.biotop}</p>
               </div>
               <div className="detail__item">
                 <h3>Potrava</h3>
-                <p>{potrava}</p>
+                <p>{selectedAnimal.potrava}</p>
               </div>
               <div className="detail__item">
                 <h3>Velikost</h3>
-                <p>{velikost}</p>
+                <p>{selectedAnimal.velikost}</p>
               </div>
             </div>
 

@@ -9,24 +9,27 @@ import AnimalDetail from './components/AnimalDetail';
 const App = () => {
 
   const [animals, setAnimals] = useState([]);
+  const [vybraneZvire, setVybraneZvire] = useState('');
 
   useEffect(
       () => {
         fetch('https://lrolecek.github.io/zviratka-api/zvirata.json')
         .then( response => response.json())
         .then( data => {
-          setAnimals(data.zvirata)
-        })},
+          setAnimals(data.zvirata);
+          setVybraneZvire(data.zvirata[0])
+          })},
     []
   );
 
-  const [vybraneZvire, setVybraneZvire] = useState('');
+
 
 
   // const [selectedAnimalId, setSelectedAnimalId] = useState();
 
   const zobrazDetailZvirete = (id) => {
-      setVybraneZvire(id)
+    const zviratko = animals.find ((animal) => animal.id === id)
+      setVybraneZvire(zviratko)
     };
 
 
