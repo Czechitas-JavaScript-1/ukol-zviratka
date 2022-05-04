@@ -22,9 +22,18 @@ const App = () => {
 
   const [vybraneZvire, setVybraneZvire] = useState('');
 
-  const zobrazDetailZvirete = (seznamZvirat) => {
-    setVybraneZvire(seznamZvirat)
-  };
+
+  // const [selectedAnimalId, setSelectedAnimalId] = useState();
+
+  const zobrazDetailZvirete = (id) => {
+      setVybraneZvire(id)
+    };
+
+
+
+  // const zobrazDetail = (vybraneZvire) => {
+  //   setSelectedAnimalId(vybraneZvire)
+  // }
 
 
   return (
@@ -32,8 +41,8 @@ const App = () => {
       <h1>Zvířátka v ZOO</h1>
 
       <div className="container">
-        <AnimalList seznamZvirat={animals} vyberZvire={zobrazDetailZvirete}/>
-        <AnimalDetail selectedAnimal={vybraneZvire.id}  />
+        <AnimalList seznamZvirat={animals}  vyberZvire={zobrazDetailZvirete} />
+        <AnimalDetail selectedAnimal={vybraneZvire} />
         {/* zde budou jednotlivé komponenty */}
       </div>
     </>

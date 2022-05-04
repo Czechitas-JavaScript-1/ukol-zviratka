@@ -18,17 +18,27 @@ const AnimalList = ({seznamZvirat, vyberZvire}) => {
   // );
 
 
+  const [vybraneZvire, setVybraneZvire] = useState('');
+
+  const zobrazDetailZvirete = (id) => {
+    setVybraneZvire(id)
+  };
+
 
   return (
     <>
       <div className="animal-list">
-        <ul onClick={ () => { vyberZvire(seznamZvirat)}}>
+        <ul >
           {seznamZvirat.map(animal => 
               <Animal 
                 key={animal.id}
+                id={animal.id}
                 name={animal.nazev}
                 latinName={animal.nazevLatinsky}
                 foto={animal.foto}
+                {...seznamZvirat}
+                vybraneZvire={vyberZvire}
+                
                 
               />
             )}

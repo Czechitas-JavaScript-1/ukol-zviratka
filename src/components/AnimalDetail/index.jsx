@@ -11,7 +11,7 @@ const AnimalDetail = ({selectedAnimal, nazev, nazevLatinsky, domovina, potrava, 
             <img className="detail__image" src="/img/slon.jpg" alt="xxx" />
             <div className="detail__title">
               <h2 className="detail__name"><span>{selectedAnimal}</span></h2>
-              <div className="detail__latin"><span>{nazevLatinsky}</span></div>
+              <div className="detail__latin"><span>{selectedAnimal.latinName}</span></div>
             </div>
           </div>
 
