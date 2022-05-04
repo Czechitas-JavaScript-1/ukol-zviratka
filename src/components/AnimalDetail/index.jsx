@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 
-const AnimalDetail = ({selectedAnimal}) => {
+const AnimalDetail = ({selectedAnimal, vybraneZoo}) => {
   return (
     <>
       <div className="detail">
@@ -41,7 +41,7 @@ const AnimalDetail = ({selectedAnimal}) => {
 
             <div className="detail__zoo">
               <h3>Najdete v těchto ZOO</h3>
-              <p>Praha, Dvůr Králové, Olomouc</p>
+              <p>{vybraneZoo}</p>
             </div>
           </div>
 

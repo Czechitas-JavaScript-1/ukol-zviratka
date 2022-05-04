@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { render } from 'react-dom';
 import './style.css';
 
+
 import AnimalList from './components/AnimalList';
 import AnimalDetail from './components/AnimalDetail';
 
@@ -10,6 +11,10 @@ const App = () => {
 
   const [animals, setAnimals] = useState([]);
   const [vybraneZvire, setVybraneZvire] = useState('');
+
+
+  // const {zoo.id} = useParams();
+  // const vyberZoo = animals.find( (animal) => animal.zoo === zoo.id)
 
   useEffect(
       () => {
@@ -22,6 +27,21 @@ const App = () => {
     []
   );
 
+    const [zoo, setZoo] = useState();
+
+    useEffect(
+      () => {
+        fetch('https://lrolecek.github.io/zviratka-api/zoo.json')
+        .then(res => res.json())
+        .then(data => {
+          setZoo(data.zoo)
+          console.log(data.zoo)
+        })
+      },
+      []      
+    )
+
+    const vyberZoo = animals.find( (animal) => animal.zoo === {zoo})
 
 
 
@@ -45,7 +65,7 @@ const App = () => {
 
       <div className="container">
         <AnimalList seznamZvirat={animals}  vyberZvire={zobrazDetailZvirete} />
-        <AnimalDetail selectedAnimal={vybraneZvire} />
+        <AnimalDetail selectedAnimal={vybraneZvire} vybraneZoo={vyberZoo}/>
         {/* zde budou jednotlivé komponenty */}
       </div>
     </>
